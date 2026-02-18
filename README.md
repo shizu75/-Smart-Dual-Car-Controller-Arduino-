@@ -1,10 +1,9 @@
-# 🚗 Smart Bluetooth Car Controller (Arduino)
+# 🚗 Smart Dual Car Controller (Arduino)
 
 A **multi-mode Arduino robotic car** that supports:
 
 - 📱 **Bluetooth manual control** (Android app: *BT Car Controller*)
 - 🛣️ **Line following mode**
-- 🚧 **Obstacle detection**
 - 🔊 **Horn control**
 
 The car automatically switches between autonomous modes and manual Bluetooth control based on sensor inputs.
@@ -24,7 +23,6 @@ The app sends single-character commands via Bluetooth to control movement and ho
 
 - Bluetooth-controlled driving
 - Automatic line following
-- Obstacle detection override
 - Horn ON/OFF control
 - PWM speed control
 - Mode switching using sensors
@@ -38,8 +36,6 @@ The app sends single-character commands via Bluetooth to control movement and ho
 - L293D / L298 Motor Driver  
 - 2 × DC Motors + Chassis  
 - IR Line Sensors (Left & Right)  
-- Line following sensor  
-- Obstacle sensor  
 - Buzzer (Horn)  
 - External battery supply  
 - Jumper wires  
@@ -70,7 +66,6 @@ The app sends single-character commands via Bluetooth to control movement and ho
 | 12 | Right Line Sensor |
 | 13 | Left Line Sensor |
 | A4 | Line Following Mode Sensor |
-| A5 | Obstacle Sensor |
 | 4 | Horn (Buzzer) |
 
 ---
@@ -103,8 +98,7 @@ Commands are case-insensitive. Newline characters are ignored.
 ## ⚙️ Working Logic
 
 ### Mode Selection
-- **Line Sensor HIGH + Obstacle LOW** → Line Following Mode
-- **Line Sensor LOW + Obstacle HIGH** → Obstacle Mode
+- **Line Sensor HIGH** → Line Following Mode
 - **Otherwise** → Bluetooth Manual Control
 
 ### Line Following Behavior
@@ -138,8 +132,6 @@ Smart-Bluetooth-Car/
 
 ## 🚀 Future Improvements
 
-- Ultrasonic distance measurement
-- Automatic obstacle avoidance
 - Speed control from app
 - ESP32 + WiFi camera
 - Mobile app with mode selection
